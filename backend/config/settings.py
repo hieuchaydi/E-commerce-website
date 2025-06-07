@@ -47,12 +47,19 @@ INSTALLED_APPS = [
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',  # Thêm session auth
     ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ]
 }
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000",
-    "https://localhost:3000",
-]
+
+# Cấu hình CSRF
+CSRF_COOKIE_SAMESITE = 'Lax'
+SESSION_COOKIE_SAMESITE = 'Lax'
+CSRF_COOKIE_HTTPONLY = False  # Cho phép JavaScript truy cập
+SESSION_COOKIE_HTTPONLY = True
+
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",

@@ -29,7 +29,7 @@ urlpatterns = [
          name='product-reviews'),
     path('upload/', UploadImageView.as_view(), name='upload-image'),
     path('products/<int:pk>/upload_image/', ProductImageUploadView.as_view(), name='upload-product-image'),
-    path('cart/clear/', ClearCartView.as_view(), name='clear-cart'),  # Đã sửa đường dẫn
+    path('cart/clear/', ClearCartView.as_view(), name='clear-cart'),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
 
